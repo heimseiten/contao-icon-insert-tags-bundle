@@ -4,21 +4,21 @@ Font Awesome Insert Tags examples:
 
 {{fab::facebook}}
 
-{{fa::phone}}
+{{fa::envelope}}
 
-{{fas::phone}}
+{{fas::envelope}}
 
-{{fad::phone}}
+{{fad::envelope}}
 
-{{fal::phone}}
+{{fal::envelope}}
 
-{{fat::phone}}
+{{fat::envelope}}
 
-{{fasl::phone}}
+{{fasl::envelope}}
 
-{{fasr::phone}}
+{{fasr::envelope}}
 
-{{fass::phone}}
+{{fass::envelope}}
 
 
 All Font Awesome styles can be used: brands (fab), regular (fa), solid (fas), duotone (fad), light (fal), thin (fat), sharp-light (fasl), sharp-regular (fasr), sharp-solid (fass)
