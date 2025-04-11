@@ -1,4 +1,4 @@
-# contao-icon-insert-tags-bundle
+# IconInsertTags
 
 Font Awesome Insert Tags examples: 
 
