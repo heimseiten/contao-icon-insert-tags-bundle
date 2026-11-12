@@ -50,36 +50,22 @@ class ReplaceInsertTagsListener
             case 'fasds':
                 return $this->buildHtml($param, 'sharp-duotone-solid', $iconPath, $customIconPath, $cssClass);
                 break;
-            case 'icon':
-                return $this->buildHtml($param, 'custom', $iconPath, $customIconPath, $cssClass);
-                break;
             default:
                 return false;
         }
     }
 
+    // {{icon::…}} is handled by Heimseiten\ContaoIconInsertTagsBundle\InsertTag\IconInsertTag
     private function buildHtml($param, $variant, $iconPath, $customIconPath, $cssClass) {
-        if ($variant == 'custom') {
-
-            if (file_exists('files/layout/icons/'.$param.'.svg')) {
-                return '<i class="svg '.$variant.' '.$param.' '.$cssClass.'">'.file_get_contents('files/layout/icons/'.$param.'.svg').'</i>';
-            } else {
-                return '<i class="svg error '.$cssClass.'">icon not found</i>';
-            }
-
-        } else {
-            
-            if (file_exists($iconPath.$variant.'/'.$param.'.svg')) {
-                return '<i class="svg fa-'.$variant.' fa-'.$param.' '.$cssClass.'">'.file_get_contents($iconPath.$variant.'/'.$param.'.svg').'</i>';
-            } else {
-                if (file_exists($customIconPath.$variant.'/'.$param.'.svg')) {
-                    return '<i class="svg fa-'.$variant.' fa-'.$param.' '.$cssClass.'">'.file_get_contents($customIconPath.$variant.'/'.$param.'.svg').'</i>';
-                } else {
-                    return '<i class="svg error '.$cssClass.'">icon not found</i>';
-                }
-            }
-
+        if (file_exists($iconPath.$variant.'/'.$param.'.svg')) {
+            return '<i class="svg fa-'.$variant.' fa-'.$param.' '.$cssClass.'">'.file_get_contents($iconPath.$variant.'/'.$param.'.svg').'</i>';
         }
-    } 
+
+        if (file_exists($customIconPath.$variant.'/'.$param.'.svg')) {
+            return '<i class="svg fa-'.$variant.' fa-'.$param.' '.$cssClass.'">'.file_get_contents($customIconPath.$variant.'/'.$param.'.svg').'</i>';
+        }
+
+        return '<i class="svg error '.$cssClass.'">icon not found</i>';
+    }
 
 }
